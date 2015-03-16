@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 var socketio = require('socket.io');
 
 
-app.use('/', routes);
+app.use('/', routes(io));
 app.use(morgan('dev'));
 
 app.use(express.static(__dirname + '/public'));
