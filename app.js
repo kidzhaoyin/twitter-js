@@ -6,6 +6,9 @@ var router = express.Router();
 var morgan = require('morgan');
 var swig = require('swig');
 var routes = require('./routes/');
+var bodyParser = require('body-parser');
+var socketio = require('socket.io');
+
 
 app.use('/', routes);
 app.use(morgan('dev'));
@@ -20,7 +23,5 @@ app.set('view engine','html');
 //response.render( 'index', {title: 'Hall of Fame', people: people} );
 //});
 
-var server = app.listen(3000, function(){
-	console.log('welcome');
-
-});
+var server = app.listen(3000);
+var io = socketio.listen(server);
